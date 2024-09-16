@@ -7,9 +7,9 @@ start_time = time.time()
 
 url = "https://jsonplaceholder.typicode.com/posts/{}"
 
-max_requests = 10
+MAX_REQUESTS = 10
 
-semaphore = asyncio.Semaphore(10)
+semaphore = asyncio.Semaphore(MAX_REQUESTS)
 
 async def fetch_post_data(session, post_id):
     async with semaphore:
